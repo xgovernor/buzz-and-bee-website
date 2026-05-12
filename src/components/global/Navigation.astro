@@ -1,30 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { getLangFromUrl, getUrlWithoutLang, useTranslations, useTranslatedPath } from "@i18n/utils";
 
 const isDev = import.meta.env.DEV;
-
-const lang = getLangFromUrl(Astro.url);
-const path = getUrlWithoutLang(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
 
 let pages = [
 	{
 		title: "Home",
 		url: "/",
 	},
-	// {
-	// 	title: "Services",
-	// 	url: "/services",
-	// },
 	{
-		title: "Blog",
-		url: "/blog/",
-	},
-	{
-		title: t("contacts"),
+		title: "Contacts",
 		url: "/contact/",
 	},
 ];
@@ -40,7 +26,7 @@ const { pathname } = Astro.url;
 ---
 
 <header>
-	<a href={translatePath("/")} aria-label="Home" class="logo absolute z-50 flex h-[4.5rem] items-center md:h-[5.9rem]">
+	<a href="/" aria-label="Home" class="logo absolute z-50 flex h-[4.5rem] items-center md:h-[5.9rem]">
 		<svg
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +146,7 @@ const { pathname } = Astro.url;
 				<div
 					class="shadow-thick resizable nav-container squircle relative mx-auto flex w-full flex-col justify-center overflow-x-hidden bg-zinc-900 backdrop-blur-xl backdrop-filter md:flex-row-reverse">
 					<div class="flex flex-row items-center justify-end md:hidden">
-						<a class="px-3 py-[0.4rem] pl-4" href={translatePath("/contact/")} aria-label="Contact Page">
+						<a class="px-3 py-[0.4rem] pl-4" href="/contact/" aria-label="Contact Page">
 							<Icon class="text-white" name="octicon:mail-16" width="20" data-xbind.class="{'hidden': open}" />
 						</a>
 						<button
@@ -195,11 +181,10 @@ const { pathname } = Astro.url;
 								pages.map((page) => (
 									<li data-cursor-hover>
 										<a
-											href={translatePath(page.url)}
+											href={page.url}
 											class={`inline-block cursor-pointer px-1 py-[0.33rem] ${
 												page.url === pathname ||
-												page.url === pathname.replace(/^\/it|\/$/, "") ||
-												(page.url === "/blog" && (pathname.startsWith("/blog") || pathname.startsWith("/it/blog")))
+												page.url === pathname.replace(/\/$/, "")
 													? "active"
 													: ""
 											}`}>
@@ -212,16 +197,7 @@ const { pathname } = Astro.url;
 									</li>
 								))
 							}
-							<li>
-								<a href={translatePath(path, `${lang === "it" ? "en" : "it"}`)} class="inline-block cursor-pointer px-1 py-[0.33rem]">
-									<span class="menu-item-container inline-block">
-										<span
-											class="menu-item px-4 py-1 font-semibold uppercase tracking-wide text-zinc-400 hover:text-white focus:text-white focus:shadow-none focus:outline-none">
-											{lang === "it" ? "en" : "it"}
-										</span>
-									</span>
-								</a>
-							</li>
+
 						</ul>
 					</nav>
 				</div>
@@ -330,10 +306,8 @@ const { pathname } = Astro.url;
 					x: () => {
 						const pathName = window.location.pathname;
 
-						if (pathName === "/" || pathName === "/it/") {
-							return "9.5rem";
-						} else if (pathName.startsWith("/blog") || pathName.startsWith("/it/blog")) {
-							return "3.5rem";
+						if (pathName === "/") {
+							return "6.5rem";
 						}
 
 						return "-3.5rem";

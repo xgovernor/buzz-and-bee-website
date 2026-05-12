@@ -14,10 +14,6 @@ export default defineConfig({
 		},
 	},
 	site: "https://mintaka.co",
-	i18n: {
-		defaultLocale: "en",
-		locales: ["en", "it"],
-	},
 	markdown: {
 		drafts: true,
 		shikiConfig: {

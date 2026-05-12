@@ -1,52 +1,26 @@
 ---
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@i18n/utils";
-
 const { class: className } = Astro.props;
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
 
 const faqs = [
 	{
-		question: t("faqs.question1"),
-		answer: t("faqs.answer1"),
+		question: "Who owns the website and code once the project is finished?",
+		answer: "You do. Once the project is completed and fully paid for, you retain 100% ownership of your website, branding assets, and all associated code. We simply reserve the right to feature the work in our portfolio.",
 	},
 	{
-		question: t("faqs.question2"),
-		answer: t("faqs.answer2"),
+		question: "Do I need to provide the website content, or do you handle copywriting?",
+		answer: "That's completely up to you! While some clients prefer to write their own content, we offer comprehensive Content Marketing and Copywriting services. We can write highly engaging, SEO-optimized copy for your entire site so you don't have to lift a finger.",
 	},
 	{
-		question: t("faqs.question3"),
-		answer: t("faqs.answer3"),
+		question: "Will my new website be mobile-friendly and optimized for Google (SEO)?",
+		answer: "Absolutely. Every website we build is designed with a 'mobile-first' approach to ensure it looks stunning on all devices. We also bake technical SEO best practices into the core code to ensure you rank highly on Google from day one.",
 	},
 	{
-		question: t("faqs.question4"),
-		answer: t("faqs.answer4"),
+		question: "How long does a typical web development or branding project take?",
+		answer: "For a standard branding or web development project, our typical turnaround time is 2 to 6 weeks. However, highly complex custom applications or e-commerce platforms may take longer. We will provide a strict, transparent timeline during our initial kickoff meeting.",
 	},
 	{
-		question: t("faqs.question5"),
-		answer: t("faqs.answer5"),
-	},
-	{
-		question: t("faqs.question6"),
-		answer: t("faqs.answer6"),
-	},
-	{
-		question: t("faqs.question7"),
-		answer: t("faqs.answer7"),
-	},
-	{
-		question: t("faqs.question8"),
-		answer: t("faqs.answer8"),
-	},
-	{
-		question: t("faqs.question9"),
-		answer: t("faqs.answer9"),
-	},
-	{
-		question: t("faqs.question10"),
-		answer: t("faqs.answer10"),
+		question: "How do you measure the success of a social media or marketing campaign?",
+		answer: "We don't guess; we use hard data. We establish Key Performance Indicators (KPIs) at the start of the campaign—such as conversion rates, lead generation, or website traffic—and provide you with transparent, regular reports detailing exactly how your investment is performing.",
 	},
 ];
 ---
@@ -92,7 +66,7 @@ const faqs = [
 	</div>
 	<div class="faq-more-questions col-span-12 flex flex-col items-center justify-center gap-8 pb-32">
 		<div class="flex gap-10">
-			<span class="other-question-title opacity-0">{t("faq.otherquestions")}</span>
+			<span class="other-question-title opacity-0">Other questions?</span>
 			<svg
 				fill="transparent"
 				stroke="#fff"
@@ -124,8 +98,8 @@ const faqs = [
 		<div class="faq-contact-us-button squircle-bg-white rounded-lg bg-zinc-200 opacity-0 sm:ml-44" data-cursor-hover data-cursor-parallax>
 			<a
 				class="flex h-10 w-full max-w-52 flex-1 items-center justify-center px-4 py-2 text-xl text-zinc-900 transition-all hover:text-black sm:w-auto md:font-bold lg:h-10"
-				href={translatePath("/contact/")}>
-				{t("contactus")}
+				href="/contact/">
+				Contact us
 			</a>
 		</div>
 	</div>

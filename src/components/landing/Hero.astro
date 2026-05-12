@@ -1,10 +1,5 @@
 ---
 import LinkBlend from "@components/global/LinkBlend.astro";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
 ---
 
 <section id="hero" class="section home-dark-section hero min-h-screen">
@@ -12,31 +7,31 @@ const translatePath = useTranslatedPath(lang);
 		<div class="relative flex flex-1 flex-col justify-around rounded-lg pb-10 pt-20 lg:rounded-2xl">
 			<div class="flex justify-center">
 				<h1 class="text-center font-display text-5xl font-extrabold uppercase sm:text-7xl md:text-8xl lg:text-9xl">
-					<span>{t("hero.title.main")}</span>
+					<span>We design, build, and market</span>
 					<span class="rotator relative inline-flex h-20 w-full justify-center md:h-24 lg:h-32">
-						<span>{t("hero.title.1")}</span><span>{t("hero.title.2")}</span><span>{t("hero.title.3")}</span><span>
-							{t("hero.title.4")}
-						</span><span>{t("hero.title.1")}</span>
+						<span>digital experiences</span><span>web applications</span><span>brand identities</span><span>
+							marketing campaigns
+						</span><span>digital experiences</span>
 					</span>
 				</h1>
 			</div>
 			<div class="flex flex-col items-center gap-5 text-center lg:gap-10">
 				<p class="mt-8 max-w-3xl font-mono lg:text-lg">
-					{t("hero.subtitle")}
+					Buzz and Bee is a premier digital agency building high-performance web applications, stunning brand identities, and data-driven campaigns. We don't just deliver code and graphics. We deliver measurable growth and world-class quality for businesses worldwide.
 				</p>
 				<div class="flex flex-col items-center justify-center gap-3 lg:col-start-1">
 					<div class="squircle-bg rounded-lg bg-zinc-900" data-cursor-hover data-cursor-parallax>
 						<a
 							class="flex h-10 w-full max-w-52 flex-1 items-center justify-center px-4 py-2 text-xl text-slate-200 transition-all hover:text-white sm:w-auto md:font-bold lg:h-10"
 							aria-label="Contact Page"
-							href={translatePath("/contact/")}>
-							{t("contact")}
+							href="/contact/">
+							Contact
 						</a>
 					</div>
 
 					<small>
-						{t("or")}
-						<LinkBlend id="go-projects-button" isButton={true}>{t("hero.scroll")}</LinkBlend>
+						or
+						<LinkBlend id="go-projects-button" isButton={true}>Book a free consultation</LinkBlend>
 					</small>
 				</div>
 			</div>

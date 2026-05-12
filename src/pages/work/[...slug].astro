@@ -6,19 +6,17 @@ import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 export async function getStaticPaths() {
 	const projectsEntries = await getCollection("projects");
 
-	return projectsEntries
-		.map((entry) => {
-			const [lang, ...slug] = entry.slug.split("/");
-			return { params: { lang, slug: slug.join("/") || undefined }, props: entry };
-		})
-		.filter((entry) => entry.params.lang === "en");
+	return projectsEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: entry,
+	}));
 }
 
 const entry = Astro.props;
 const { Content } = await entry.render();
 
 const seo: AstroSeoProps = {
-	title: `Project ${entry.data.title} - Majestico`,
+	title: `${entry.data.title} - Buzz And Bee`,
 	description: entry.data.description,
 	canonical: `https://mintaka.co/work/${entry.slug}/`,
 	openGraph: {
@@ -43,11 +41,11 @@ const seo: AstroSeoProps = {
 			{ url: "https://mintaka.co/opengraph/social-og.jpg" },
 			{ url: "https://mintaka.co/opengraph/twitter-og.jpg" },
 		],
-		site_name: "YourSitesName",
+		site_name: "Buzz And Bee",
 	},
 	twitter: {
-		handle: "@TwitterHandle",
-		site: "@site",
+		handle: "@buzzandbee",
+		site: "@buzzandbee",
 		cardType: "summary_large_image",
 	},
 };

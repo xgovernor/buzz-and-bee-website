@@ -1,20 +1,76 @@
 ---
 import Title from "@components/global/Title.astro";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
 ---
 
 <section>
 	<div class="mx-auto max-w-7xl px-8 py-12 md:px-12 lg:px-32 lg:py-32">
 		<div>
-			<Title title="Privacy" subtitle="Last updated 01. Jan 2024" class="pb-10 pt-20 uppercase" />
+			<Title title="Privacy Policy" subtitle="Last updated May 12, 2026" class="pb-10 pt-20 uppercase" />
 		</div>
 		<div class="prose-styles mt-12 lg:mt-24">
-			<h2 id="shine-the-light-disclosure">{t("privacy.wip")}</h2>
-			<p>{t("privacy.wip.content")}</p>
+			<h2 id="introduction">Introduction</h2>
+			<p>
+				At Buzz And Bee (registered as <strong>Buzz and Bee Digital</strong>), we are committed to protecting your privacy and ensuring that your 
+				personal data is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, and protect your information 
+				when you use our website and professional services, including Design, Development, and Digital Marketing.
+			</p>
+
+			<h3>1. Information We Collect</h3>
+			<p>
+				We may collect the following types of information:
+			</p>
+			<ul>
+				<li><strong>Personal Identification Information:</strong> Name, email address, phone number, and company details provided when you contact us or request a proposal.</li>
+				<li><strong>Project Data:</strong> Information, assets, and requirements shared with us during the course of a project.</li>
+				<li><strong>Technical Data:</strong> IP address, browser type, and usage data collected through cookies to improve our website experience.</li>
+			</ul>
+
+			<h3>2. How We Use Your Information</h3>
+			<p>
+				We use the collected information for the following purposes:
+			</p>
+			<ul>
+				<li>To provide and manage our professional Services.</li>
+				<li>To communicate with you regarding projects, updates, and inquiries.</li>
+				<li>To improve our website functionality and user experience.</li>
+				<li>To comply with legal obligations.</li>
+			</ul>
+
+			<h3>3. Data Sharing and Disclosure</h3>
+			<p>
+				Buzz And Bee does not sell or rent your personal information to third parties. We may share data with trusted third-party service providers 
+				(e.g., hosting providers, project management tools) only as necessary to perform our Services. All such providers are required to maintain 
+				the confidentiality of your data.
+			</p>
+
+			<h3>4. Data Security</h3>
+			<p>
+				We implement a variety of security measures to maintain the safety of your personal information. However, please note that no method 
+				of transmission over the internet or electronic storage is 100% secure.
+			</p>
+
+			<h3>5. Your Rights</h3>
+			<p>
+				You have the right to:
+			</p>
+			<ul>
+				<li>Access the personal data we hold about you.</li>
+				<li>Request the correction or deletion of your data.</li>
+				<li>Object to the processing of your data for specific purposes.</li>
+			</ul>
+
+			<h3>6. Cookies</h3>
+			<p>
+				Our website uses cookies to enhance your browsing experience. You can choose to disable cookies through your browser settings, 
+				though this may affect certain features of the site.
+			</p>
+
+			<h3>7. Contact Us</h3>
+			<p>
+				If you have any questions regarding this Privacy Policy or how your data is handled, please reach out to us:
+				<br />
+				<strong>Email:</strong> <a href="mailto:buzzandbee25@gmail.com">buzzandbee25@gmail.com</a>
+			</p>
 		</div>
 	</div>
 </section>

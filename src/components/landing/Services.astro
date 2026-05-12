@@ -5,46 +5,32 @@ import designSvg from "@assets/images/services/creative-designer-doing-multitask
 import mobileSvg from "@assets/images/services/mobile-app-ui-ux-design.svg?raw";
 import seoSvg from "@assets/images/services/seo-link-building.svg?raw";
 import websiteSvg from "@assets/images/services/website-ui-ux-development.svg?raw";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
 
 const { class: className } = Astro.props;
 
 const points = [
 	{
-		title: t("websites.title"),
-		content: t("websites.content"),
-		image: websiteSvg,
-	},
-	{
-		title: t("apps.title"),
-		content: t("apps.content"),
-		image: mobileSvg,
-	},
-	{
-		title: t("uiux.title"),
-		content: t("uiux.content"),
+		title: "Design",
+		content: "We craft stunning, user-centric interfaces and powerful brand identities that leave a lasting impression and drive customer engagement.",
 		image: designSvg,
 	},
 	{
-		title: t("seo.title"),
-		content: t("seo.content"),
-		image: seoSvg,
+		title: "Development",
+		content: "We build lightning-fast, secure, and highly scalable web applications using modern technologies to power your core business operations.",
+		image: websiteSvg,
 	},
 	{
-		title: t("advertising.title"),
-		content: t("advertising.content"),
-		image: advertisingSvg,
+		title: "Marketing",
+		content: "We accelerate your revenue growth with data-driven SEO, targeted advertising campaigns, and compelling content strategies that actually convert.",
+		image: seoSvg,
 	},
 ];
 ---
 
 <section id="services" class:list={["section home-dark-section services-section relative", className]}>
 	<div class="wrapper col-span-12 h-screen w-full">
-		<h2 class="sr-only">{t("services")}</h2>
+		<h2 class="sr-only">Services</h2>
 		<div class="indicators absolute left-0 top-0 mt-[10vh] hidden h-[80vh] w-1 flex-col justify-between gap-2">
 			{points.map(() => <div class="indicator w-full grow bg-[#333333]" />)}
 		</div>
