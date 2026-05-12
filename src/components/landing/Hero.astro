@@ -31,7 +31,9 @@ import LinkBlend from "@components/global/LinkBlend.astro";
 
 					<small>
 						or
-						<LinkBlend id="go-projects-button" isButton={true}>Book a free consultation</LinkBlend>
+						<LinkBlend href="https://calendly.com/buzzandbee/new-meeting" target="_blank" isButton={true}>
+							Book a free consultation
+						</LinkBlend>
 					</small>
 				</div>
 			</div>
@@ -133,10 +135,6 @@ import LinkBlend from "@components/global/LinkBlend.astro";
 				}
 			});
 
-		var goProjectsButton = document.getElementById("go-projects-button");
-		goProjectsButton?.addEventListener("click", function () {
-			gsap.to(window, { duration: 0.5, scrollTo: "#projects" });
-		});
 	}
 
 	document.removeEventListener("DOMContentLoaded", init); // astro:page-load
