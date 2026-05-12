@@ -13,7 +13,7 @@ export default defineConfig({
 			},
 		},
 	},
-	site: "https://mintaka.co",
+	site: "https://buzzandbee.com",
 	markdown: {
 		drafts: true,
 		shikiConfig: {

@@ -14,47 +14,64 @@ type Props = {
 
 const { seo: seoProp } = Astro.props;
 
-const shareImage = new URL("/images/meta/mintaka_share.gif", Astro.site).toString();
+const shareImage = new URL("/images/meta/share.png", Astro.site).toString();
 
 const defaultSeo: AstroSeoProps = {
-	title: "Web Agency Leading in Performant Web Design Solutions - Mintaka Studio",
+	title: "Buzz And Bee: Professional Design, Development & Marketing Solutions",
 	description:
-		"Mintaka Studio excels in creating fast, user-friendly websites with a focus on aesthetic design and SEO optimization, ensuring a standout online presence",
-	canonical: "https://mintaka.co",
+		"Buzz And Bee (Buzz and Bee Digital) specializes in high-performance web design, custom development, and strategic digital marketing to help brands stand out.",
+	canonical: "https://buzzandbee.com",
 	openGraph: {
-		url: "https://mintaka.co",
-		title: "Web Agency Leading in Performant Web Design Solutions - Mintaka Studio",
+		url: "https://buzzandbee.com",
+		title: "Buzz And Bee: Professional Design, Development & Marketing Solutions",
 		description:
-			"Mintaka Studio excels in creating fast, user-friendly websites with a focus on aesthetic design and SEO optimization, ensuring a standout online presence",
+			"Buzz And Bee (Buzz and Bee Digital) specializes in high-performance web design, custom development, and strategic digital marketing to help brands stand out.",
 		images: [
 			{
 				url: shareImage,
 				width: 1200,
 				height: 630,
-				alt: "Social open graph",
-				type: "image/gif",
-			},
-			{
-				url: shareImage,
-				width: 4096,
-				height: 4096,
-				alt: "Twitter open graph",
-				type: "image/gif",
+				alt: "Buzz And Bee Social Share",
+				type: "image/png",
 			},
 		],
-		site_name: "Mintaka",
+		site_name: "Buzz And Bee",
 	},
 	twitter: {
-		handle: "@mintakastudio",
-		site: "@mintakastudio",
+		handle: "@buzzandbee",
+		site: "@buzzandbee",
 		cardType: "summary_large_image",
 	},
 	additionalMetaTags: [
 		{
 			name: "publisher",
-			content: "Mintaka Studio",
+			content: "Buzz and Bee Digital",
 		},
 	],
+};
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Buzz And Bee",
+	"alternateName": "Buzz and Bee Digital",
+	"url": "https://buzzandbee.com",
+	"logo": "https://buzzandbee.com/logo.png",
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"telephone": "",
+		"contactType": "customer service",
+		"email": "buzzandbee25@gmail.com",
+		"availableLanguage": "en"
+	},
+	"sameAs": [
+		"https://www.facebook.com/share/1BubaymE49/",
+		"https://www.instagram.com/buzzandbee_/",
+		"https://www.linkedin.com/company/buzzandbee/",
+		"https://x.com/buzzandbee",
+		"https://dot9.dev",
+	],
+	"description": "Professional agency specializing in Design, Development, and Digital Marketing."
 };
 
 const seo = {
@@ -72,6 +89,8 @@ function cursorFollowerActive() {
 	<head>
 		<BaseHead />
 		<AstroSeo {...seo} />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+		<slot name="head" />
 	</head>
 	<body class="bg-slate-50">
 		<BackgroundTexture />

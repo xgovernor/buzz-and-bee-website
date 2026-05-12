@@ -5,9 +5,45 @@ import Services from "@components/landing/Services.astro";
 import Tagline from "@components/landing/Tagline.astro";
 import WorkPreview from "@components/landing/WorkPreview.astro";
 import Faq from "@components/landing/Faq.astro";
+const faqs = [
+	{
+		question: "Who owns the website and code once the project is finished?",
+		answer: "You do. Once the project is completed and fully paid for, you retain 100% ownership of your website, branding assets, and all associated code. We simply reserve the right to feature the work in our portfolio.",
+	},
+	{
+		question: "Do I need to provide the website content, or do you handle copywriting?",
+		answer: "That's completely up to you! While some clients prefer to write their own content, we offer comprehensive Content Marketing and Copywriting services. We can write highly engaging, SEO-optimized copy for your entire site so you don't have to lift a finger.",
+	},
+	{
+		question: "Will my new website be mobile-friendly and optimized for Google (SEO)?",
+		answer: "Absolutely. Every website we build is designed with a 'mobile-first' approach to ensure it looks stunning on all devices. We also bake technical SEO best practices into the core code to ensure you rank highly on Google from day one.",
+	},
+	{
+		question: "How long does a typical web development or branding project take?",
+		answer: "For a standard branding or web development project, our turnaround time is 2 to 6 weeks. However, complex custom applications or e-commerce platforms may take longer. We provide a transparent timeline during our initial kickoff.",
+	},
+	{
+		question: "How do you measure the success of a social media or marketing campaign?",
+		answer: "We use hard data. We establish Key Performance Indicators (KPIs) at the start—such as conversion rates, lead generation, or website traffic—and provide transparent, regular reports detailing exactly how your investment is performing.",
+	},
+];
+
+const faqJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": faqs.map((faq) => ({
+		"@type": "Question",
+		"name": faq.question,
+		"acceptedAnswer": {
+			"@type": "Answer",
+			"text": faq.answer,
+		},
+	})),
+};
 ---
 
 <BaseLayout>
+	<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} slot="head" />
 	<Hero />
 	<WorkPreview class="!pt-20 pb-20 lg:!pt-36 lg:pb-40" />
 	<Services />

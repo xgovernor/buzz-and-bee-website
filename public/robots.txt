@@ -1,4 +1,16 @@
+# https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
 Allow: /
 
-Sitemap: https://mintaka.co/sitemap-index.xml
+# Specifically allowing AI agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://buzzandbee.com/sitemap-index.xml
